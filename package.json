@@ -1,0 +1,49 @@
+{
+  "name": "3dvisual",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web app que transforma fotos de carros em modelos 3D realistas usando IA (Meshy / Tripo).",
+  "type": "module",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "tsx watch --clear-screen=false server/index.ts",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "tsx server/index.ts --production",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "demo-car": "tsx scripts/build-demo-car.ts",
+    "postinstall": "node scripts/copy-decoders.mjs"
+  },
+  "dependencies": {
+    "@pmndrs/assets": "^1.7.0",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
+    "@react-three/postprocessing": "^3.1.3",
+    "express": "^5.2.1",
+    "lucide-react": "^1.51.0",
+    "multer": "^2.4.0",
+    "postprocessing": "^6.39.5",
+    "react": "~19.3.0",
+    "react-dom": "~19.3.0",
+    "suspend-react": "^0.1.3",
+    "three": "^0.186.1",
+    "tsx": "^4.23.15"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.3.0",
+    "@types/node": "^22.20.5",
+    "@types/react": "~19.3.0",
+    "@types/react-dom": "~19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  }
+}
